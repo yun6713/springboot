@@ -1,0 +1,27 @@
+server:
+  context-path: /web
+  port: 8889
+  loc: home
+  
+spring:
+  security:
+    user:
+      password: ltl
+      name: ltl
+  datasource:
+    bonc:
+      password: boncmysql
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.1.123:3306/camel_rel
+      username: root
+    home:
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/sp02
+      username: root    
+    filters: stat,wall,log4j
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
