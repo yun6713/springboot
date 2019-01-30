@@ -14,7 +14,6 @@ import org.hibernate.annotations.GenericGenerator;
 public class Test01 {
 
 	@Id
-	@NotNull
 	@GeneratedValue(generator = "idsSynLogGenerator")    
 	@GenericGenerator(name = "idsSynLogGenerator", strategy = "identity")	
 	@Column(name="id")

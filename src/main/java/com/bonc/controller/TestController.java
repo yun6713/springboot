@@ -28,6 +28,16 @@ public class TestController {
 	public Object getTest(@PathVariable Long id) {
 		return tService.findById(id);
 	}
+	@RequestMapping("/insertTest")
+	@ResponseBody
+	public Object insertTest() {
+		return tService.testNativeInsert();
+	}
+	@RequestMapping("/testPageAndSort/{type}")
+	@ResponseBody
+	public Object testPageAndSort(@PathVariable int type) {
+		return tService.testPageAndSort(type);
+	}
 	
 	
 }
