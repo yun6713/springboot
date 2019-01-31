@@ -2,12 +2,13 @@ server:
   context-path: /web
   port: 8889
   loc: bonc
-  
+security:
+  basic:
+    enabled: false
+  user:
+    password: ltl
+    name: ltl 
 spring:
-  security:
-    user:
-      password: ltl
-      name: ltl
   datasource:
     bonc:
       password: boncmysql
@@ -20,6 +21,10 @@ spring:
       url: jdbc:mysql://localhost:3306/sp02
       username: root    
     filters: stat,wall,log4j
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
   jpa:
     properties:
       hibernate:

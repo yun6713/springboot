@@ -1,5 +1,7 @@
 package com.bonc.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,12 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="test01")
-public class Test01 {
+public class Test01 implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(generator = "idsSynLogGenerator")    

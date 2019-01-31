@@ -1,6 +1,8 @@
 package com.bonc.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,11 +14,12 @@ import com.bonc.service.TestService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 @Service
+@CacheConfig(cacheNames="test")
 public class TestServiceImpl implements TestService {
 	
 	@Autowired
 	TestJpaRepository test;
-
+	@Cacheable
 	@Override
 	public Object findById(Long id) {
 		// TODO Auto-generated method stub
