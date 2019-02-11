@@ -1,7 +1,7 @@
 server:
   context-path: /web
   port: 8889
-  loc: bonc
+  loc: home
 security:
   basic:
     enabled: false
