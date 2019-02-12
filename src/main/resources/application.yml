@@ -1,7 +1,4 @@
-server:
-  context-path: /web
-  port: 8889
-  loc: home
+debug: false
 security:
   basic:
     enabled: false
@@ -9,18 +6,8 @@ security:
     password: ltl
     name: ltl 
 spring:
-  datasource:
-    bonc:
-      password: boncmysql
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.1.123:3306/test01
-      username: root
-    home:
-      password: 123456
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/sp02
-      username: root    
-    filters: stat,wall,log4j
+  profiles:
+    active: bonc    
   redis:
     host: localhost
     port: 6379

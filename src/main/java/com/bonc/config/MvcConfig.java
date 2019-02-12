@@ -82,7 +82,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(druidInterceptor());
+		registry.addInterceptor(druidInterceptor()).addPathPatterns("/druid/**");
 	}
 	
 	//跨域设置
