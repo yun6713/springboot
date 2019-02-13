@@ -40,10 +40,14 @@ public class Springboot01ApplicationTests {
 		map.add("name", "lee");
 		MvcResult result = mockMvc.perform(MockMvcRequestBuilders
 				.get("/excp/test/1").params(map)).andReturn();
-		Assert.assertEquals("lalala", 1, 2);
 		System.out.println(result);
 	}
-	
+	@Test
+	public void testQuatz() throws Exception {
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+				.get("/quatz/test")).andReturn();
+		System.out.println(result);
+	}
 	
 }
 

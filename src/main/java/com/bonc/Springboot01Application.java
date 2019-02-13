@@ -7,7 +7,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource({"classpath:config.properties","classpath:config2.properties"})
+@PropertySource({"classpath:config/config.properties","classpath:config/config2.properties"})
 public class Springboot01Application extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
