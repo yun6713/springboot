@@ -7,7 +7,7 @@ security:
     name: ltl 
 spring:
   profiles:
-    active: bonc    
+    active: home    
   redis:
     host: localhost
     port: 6379
