@@ -5,4 +5,4 @@ spring:
     url: jdbc:mysql://192.168.1.123:3306/test01
     username: root  
     filters: stat,wall,log4j
-
+ 
