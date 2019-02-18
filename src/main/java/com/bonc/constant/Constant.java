@@ -3,5 +3,6 @@ package com.bonc.constant;
 import java.io.File;
 
 public class Constant {
-	public static final String UPLOAD_DIR_PATH = "E:"+File.separator+"test"+File.separator;
+	public static final String UPLOAD_DIR_PATH = String.format("E:%1stest%2s", File.separator,File.separator);
+	
 }

@@ -4,39 +4,50 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Util01 {
+	public static void main(String... args) {
+		List<String> attrs = Arrays.asList("urId","uId","rId");
+		List<String> cols  = Arrays.asList("ur_id","u_id","r_id");
+		String className = "UserRole";
+		System.out.println(getEntity(attrs, cols,className));
+	}
 
 	/**
 	 * 构建Hibernate entity类
 	 */
-	public static void getEntity() {
-		List<String> attrs = Arrays.asList("id","name");
-		List<String> cols  = Arrays.asList("id","name");
+	public static String getEntity(List<String> attrs,List<String> cols,String className) {
+		StringBuilder sb = new StringBuilder();
+		if(attrs==null || attrs.isEmpty()) {
+			return null;
+		}
 		if(cols==null || cols.isEmpty() || cols.size()<attrs.size()) {
 			cols = null;
 		}
-		System.out.println("import javax.persistence.Column;\n" + 
+		className = className==null||"".equals(className.trim())?"className":className;
+		sb.append("import javax.persistence.Column;\n" + 
 				"import javax.persistence.Entity;\n" + 
 				"import javax.persistence.GeneratedValue;\n" + 
 				"import javax.persistence.Id;\n" + 
 				"import javax.persistence.Table;\n" + 
-				"import org.hibernate.annotations.GenericGenerator;");
-		System.out.println("@Entity\n" + 
+				"import org.hibernate.annotations.GenericGenerator;\n"+
+				"import java.io.Serializable;\n");
+		sb.append("@Entity\n" + 
 				"@Table(name=\"tableName\")\n" + 
-				"public class ClassName {");
+				"public class "+className+" implements Serializable{\n"+
+				"private static final long serialVersionUID = 1L;\n");
 		for (int i = 0; i < attrs.size(); i++) {
 			if(i==0) {
-				System.out.println("@Id\n@GeneratedValue(generator = \"idsSynLogGenerator\")"
-						+ "\n@GenericGenerator(name = \"idsSynLogGenerator\", strategy = \"identity\")");
+				sb.append("@Id\n@GeneratedValue(generator = \""+className+"_Generator\")"
+						+ "\n@GenericGenerator(name = \""+className+"_Generator\", strategy = \"identity\")\n");
 			}
 			if(cols!=null) {
-				System.out.println("@Column(name=\""+cols.get(i)+"\")");
+				sb.append("@Column(name=\""+cols.get(i)+"\")\n");
 			}else {
-				System.out.println("@Column(name=\"\")");
+				sb.append("@Column(name=\"\")\n");
 			}
-			System.out.println("String "+attrs.get(i)+";");
+			sb.append("private String "+attrs.get(i)+";\n");
 		}
-		System.out.println("}");
+		sb.append("}\n");
+		return sb.toString();
 	}
-	
 	
 }

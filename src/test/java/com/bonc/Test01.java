@@ -6,13 +6,12 @@ import java.io.IOException;
 import org.junit.Test;
 
 import com.bonc.constant.Constant;
-import com.bonc.utils.Util01;
 
 public class Test01 {
 
 	@Test
 	public void test01() {
-		Util01.getEntity();
+		System.out.println(String.format("http://localhost:%s/%s", "web","8080"));
 	}
 	@Test
 	public void test02() throws IOException {
