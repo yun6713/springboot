@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Util01 {
 	public static void main(String... args) {
-		List<String> attrs = Arrays.asList("urId","uId","rId");
-		List<String> cols  = Arrays.asList("ur_id","u_id","r_id");
-		String className = "UserRole";
+		List<String> attrs = Arrays.asList("username","authority");
+		List<String> cols  = Arrays.asList("username","authority");
+		String className = "OauthUserAuthority";
 		System.out.println(getEntity(attrs, cols,className));
 	}
 
